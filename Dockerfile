@@ -111,10 +111,13 @@ FROM --platform=$BUILDPLATFORM registry.access.redhat.com/ubi8/go-toolset:1.21 A
 
 LABEL image="build"
 
+USER root
 WORKDIR /opt/app
 
 # Copy the source
 COPY . ./
+
+#RUN git config --global --add safe.directory "*"
 
 # Download dependencies before copying the source so they will be cached
 RUN go mod download
@@ -128,10 +131,6 @@ ARG TARGETARCH
 
 # Build the binaries using native go compiler from BUILDPLATFORM but compiled output for TARGETPLATFORM
 # https://www.docker.com/blog/faster-multi-platform-builds-dockerfile-cross-compilation-guide/
-
-
-USER root
-
 
 RUN --mount=type=cache,target=/root/.cache/go-build \
     --mount=type=cache,target=/go/pkg \
