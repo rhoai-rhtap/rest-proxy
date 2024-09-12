@@ -1,0 +1,49 @@
+---
+lockfileVersion: 1
+lockfileVendor: redhat
+arches:
+- arch: x86_64
+  packages:
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/Packages/p/python38-3.8.17-2.module+el8.9.0+19642+a12b4af6.x86_64.rpm
+    repoid: ubi-8-appstream-rpms
+    size: 82650
+    checksum: sha256:b20a9064b1fb565674bf677ede787e41ec7a905a57295abbf84c8b6b759e4e0e
+    name: python38
+    evr: 3.8.17-2.module+el8.9.0+19642+a12b4af6
+    sourcerpm: python38-3.8.17-2.module+el8.9.0+19642+a12b4af6.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/Packages/p/python38-libs-3.8.17-2.module+el8.9.0+19642+a12b4af6.x86_64.rpm
+    repoid: ubi-8-appstream-rpms
+    size: 8719982
+    checksum: sha256:ff143b1b9e83a7c7ca870bb9cd36969b57f362de2fb55f289aed51f64a5f71a7
+    name: python38-libs
+    evr: 3.8.17-2.module+el8.9.0+19642+a12b4af6
+    sourcerpm: python38-3.8.17-2.module+el8.9.0+19642+a12b4af6.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/Packages/p/python38-pip-19.3.1-7.module+el8.9.0+19642+a12b4af6.noarch.rpm
+    repoid: ubi-8-appstream-rpms
+    size: 1799918
+    checksum: sha256:6eeafc82646272755213d2fed76d3a64870325ab47ce7e12c8f3d056bfc20e2c
+    name: python38-pip
+    evr: 19.3.1-7.module+el8.9.0+19642+a12b4af6
+    sourcerpm: python3x-pip-19.3.1-7.module+el8.9.0+19642+a12b4af6.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/Packages/p/python38-pip-wheel-19.3.1-7.module+el8.9.0+19642+a12b4af6.noarch.rpm
+    repoid: ubi-8-appstream-rpms
+    size: 1035910
+    checksum: sha256:9542bf4bc17df71a54377d80b2330bfcff24afd0145c9e530abd48152f18239e
+    name: python38-pip-wheel
+    evr: 19.3.1-7.module+el8.9.0+19642+a12b4af6
+    sourcerpm: python3x-pip-19.3.1-7.module+el8.9.0+19642+a12b4af6.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/Packages/p/python38-setuptools-41.6.0-5.module+el8.9.0+19592+4b459c9b.noarch.rpm
+    repoid: ubi-8-appstream-rpms
+    size: 683594
+    checksum: sha256:d0cd809655799fa3b7dbd0a587a99efef41f8d67d36b35fe66fe7bc874ff453d
+    name: python38-setuptools
+    evr: 41.6.0-5.module+el8.9.0+19592+4b459c9b
+    sourcerpm: python3x-setuptools-41.6.0-5.module+el8.9.0+19592+4b459c9b.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/Packages/p/python38-setuptools-wheel-41.6.0-5.module+el8.9.0+19592+4b459c9b.noarch.rpm
+    repoid: ubi-8-appstream-rpms
+    size: 311130
+    checksum: sha256:c23a9fe385f30353f72a53918503be532c5bc1a072b70f8f4c3287098a459ec0
+    name: python38-setuptools-wheel
+    evr: 41.6.0-5.module+el8.9.0+19592+4b459c9b
+    sourcerpm: python3x-setuptools-41.6.0-5.module+el8.9.0+19592+4b459c9b.src.rpm
+  source: []
