@@ -16,7 +16,7 @@
 # Stage 1: Create the developer image for the BUILDPLATFORM only
 ###############################################################################
 ARG GOLANG_VERSION=1.21
-FROM --platform=$BUILDPLATFORM registry.access.redhat.com/ubi8/go-toolset:$GOLANG_VERSION AS develop
+FROM --platform=$BUILDPLATFORM registry.access.redhat.com/ubi8/go-toolset:1.21 AS develop
 
 ARG PROTOC_VERSION=21.12
 
@@ -35,8 +35,8 @@ RUN --mount=type=cache,target=/root/.cache/dnf:rw \
 
 # Install pre-commit
 ENV PIP_CACHE_DIR=/root/.cache/pip
-RUN --mount=type=cache,target=/root/.cache/pip \
-    pip install pre-commit
+#RUN --mount=type=cache,target=/root/.cache/pip \
+RUN pip install pre-commit
 
 # When using the BuildKit backend, Docker predefines a set of ARG variables with
 # information on the platform of the node performing the build (build platform)
@@ -107,12 +107,21 @@ CMD /bin/bash
 ###############################################################################
 # Stage 2: Run the go build with BUILDPLATFORM's native go compiler
 ###############################################################################
-FROM --platform=$BUILDPLATFORM develop AS build
+FROM --platform=$BUILDPLATFORM registry.access.redhat.com/ubi8/go-toolset:1.21 AS build
 
 LABEL image="build"
 
+USER root
+WORKDIR /opt/app
+
 # Copy the source
 COPY . ./
+
+#RUN git config --global --add safe.directory "*"
+
+# Download dependencies before copying the source so they will be cached
+RUN go mod download
+
 
 # https://docs.docker.com/engine/reference/builder/#automatic-platform-args-in-the-global-scope
 # don't provide "default" values (e.g. 'ARG TARGETARCH=amd64') for non-buildx environments,
@@ -122,13 +131,14 @@ ARG TARGETARCH
 
 # Build the binaries using native go compiler from BUILDPLATFORM but compiled output for TARGETPLATFORM
 # https://www.docker.com/blog/faster-multi-platform-builds-dockerfile-cross-compilation-guide/
+
 RUN --mount=type=cache,target=/root/.cache/go-build \
     --mount=type=cache,target=/go/pkg \
     GOOS=${TARGETOS:-linux} \
     GOARCH=${TARGETARCH:-amd64} \
     CGO_ENABLED=0 \
     GO111MODULE=on \
-    go mod tidy && go build -a -o /go/bin/server ./proxy/
+    go build -a -o /go/bin/server ./proxy/
 
 
 ###############################################################################
