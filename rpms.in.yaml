@@ -1,0 +1,6 @@
+contentOrigin:
+  repofiles:
+    - ubi.repo
+packages:
+  - python38
+  - nodejs
