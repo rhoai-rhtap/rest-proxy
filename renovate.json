@@ -1,0 +1,26 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "branchPrefix": "renovate/",
+  "packageRules": [
+    {
+      "enabled": true,
+      "automerge": false,
+      "baseBranches": ["rhoai-2.13"],
+      "matchManagers": ["tekton", "dockerfile"],
+      "updateTypes": ["digest"]
+    },
+    {
+      "matchUpdateTypes": [
+        "major",
+        "bump",
+        "patch"
+      ],
+      "matchManagers": ["tekton", "dockerfile"],
+      "enabled": false
+    }
+  ],
+ "prHourlyLimit": 0
+}
