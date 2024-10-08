@@ -16,7 +16,7 @@
 # Stage 1: Create the developer image for the BUILDPLATFORM only
 ###############################################################################
 ARG GOLANG_VERSION=1.21
-FROM --platform=$BUILDPLATFORM registry.access.redhat.com/ubi8/go-toolset:1.21 AS develop
+FROM --platform=$BUILDPLATFORM registry.access.redhat.com/ubi8/go-toolset@sha256:430d5a57522fe66201cfe5391d339fa8926eee37b0697449a9a44adfe9d7be80 AS develop
 
 ARG PROTOC_VERSION=21.12
 
@@ -107,7 +107,7 @@ CMD /bin/bash
 ###############################################################################
 # Stage 2: Run the go build with BUILDPLATFORM's native go compiler
 ###############################################################################
-FROM --platform=$BUILDPLATFORM registry.access.redhat.com/ubi8/go-toolset:1.21 AS build
+FROM --platform=$BUILDPLATFORM registry.access.redhat.com/ubi8/go-toolset@sha256:430d5a57522fe66201cfe5391d339fa8926eee37b0697449a9a44adfe9d7be80 AS build
 
 LABEL image="build"
 
@@ -144,7 +144,7 @@ RUN --mount=type=cache,target=/root/.cache/go-build \
 ###############################################################################
 # Stage 3: Copy binaries only to create the smallest final runtime image
 ###############################################################################
-FROM registry.access.redhat.com/ubi8/ubi-micro:latest as runtime
+FROM registry.access.redhat.com/ubi8/ubi-micro@sha256:430d5a57522fe66201cfe5391d339fa8926eee37b0697449a9a44adfe9d7be80 as runtime
 
 ARG USER=2000
 
