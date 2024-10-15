@@ -53,7 +53,7 @@ ARG USER=2000
 
 USER ${USER}
 
-COPY version /etc/modelmesh-version
+#COPY version /etc/modelmesh-version
 COPY --from=build /go/bin/server /go/bin/server
 
 CMD ["/go/bin/server"]
