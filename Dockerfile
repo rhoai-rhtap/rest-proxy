@@ -47,7 +47,7 @@ RUN GOOS=${TARGETOS:-linux} \
 ###############################################################################
 # Stage 3: Copy binaries only to create the smallest final runtime image
 ###############################################################################
-FROM registry.access.redhat.com/ubi8/ubi-micro@sha256:cf8d8796a2c07577b4adc8b598aa648b200cc6b4b5f78d2e13539711ea64f275 as runtime
+FROM registry.access.redhat.com/ubi8/ubi-micro@sha256:e74286e0fed10f4ebfcaddd5d7f93a10f914d2ce16951ca95a427a618d9c3421 as runtime
 
 ARG USER=2000
 
