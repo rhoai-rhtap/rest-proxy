@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM registry.redhat.io/ubi8/go-toolset@sha256:1cfdf0c57886426cfd322b438f2c87612d034a7121a3e70bf897162415b42216 AS build
+FROM registry.redhat.io/ubi8/go-toolset@sha256:be796155c0908cd48375bf1f7150036bcd3ad415dfb6cae135f1cf184d61964c AS build
 
 LABEL image="build"
 
