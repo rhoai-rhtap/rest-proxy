@@ -1,5 +1,5 @@
 #go-toolset:1.21
-FROM registry.redhat.io/ubi8/go-toolset:1.26.5-1785357990@sha256:fa14b2bb1ef146d6d07ab0bcf1db80545b243c85991c96d40f4847999521c7b9 AS build
+FROM registry.redhat.io/ubi8/go-toolset:1.26.5-1785429816@sha256:211c5315f6534ef991f39a60d319837c7b9b397bc809c2c09280e489c7492a42 AS build
 
 #rhoai-2.13-1
 
